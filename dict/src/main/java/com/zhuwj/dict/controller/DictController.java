@@ -1,13 +1,17 @@
 package com.zhuwj.dict.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.zhuwj.common.reponse.ResponseResult;
+import com.zhuwj.dict.entity.Dict;
+import com.zhuwj.dict.service.IDictService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.Map;
 
 /**
  * <p>
- *  前端控制器
+ * 数据字典
  * </p>
  *
  * @author zhuwj
@@ -17,6 +21,32 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/dict")
 public class DictController {
 
+
+    @Autowired
+    private IDictService dictService;
+
+    @GetMapping("list")
+    public ResponseResult list(Map map){
+        return ResponseResult.ok(dictService.listByMap(map));
+    }
+
+    @PostMapping("save")
+    public ResponseResult save(@RequestBody Dict dict) {
+        dictService.save(dict);
+        return ResponseResult.ok();
+    }
+
+    @PutMapping("save")
+    public ResponseResult update(@RequestBody Dict dict) {
+        dictService.updateById(dict);
+        return ResponseResult.ok();
+    }
+
+    @DeleteMapping("delete")
+    public ResponseResult delete(@RequestParam("id") Integer id) {
+        dictService.removeById(id);
+        return ResponseResult.ok();
+    }
 
 
 }

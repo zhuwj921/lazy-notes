@@ -90,7 +90,18 @@ public class ResponseResult<T> implements Serializable {
                 .putTimeStamp()
                 .code(ErrorCodeEnum.OK.getCode()).msg(ErrorCodeEnum.OK.getMsg());
     }
-
+    /**
+     * 请求成功  默认code为0 掺入对应的返回结果
+     *
+     * @param <T>
+     * @return
+     */
+    public static <T> ResponseResult<T> ok() {
+        return new ResponseResult<T>()
+                .result(null)
+                .putTimeStamp()
+                .code(ErrorCodeEnum.OK.getCode()).msg(ErrorCodeEnum.OK.getMsg());
+    }
 
     /**
      * 请求成功  默认code为0 掺入对应的返回结果
