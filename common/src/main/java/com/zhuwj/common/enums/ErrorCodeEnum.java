@@ -43,24 +43,24 @@ public enum ErrorCodeEnum {
     USER_FACE_RECOGNITION_FAILED("A0222", "用户面容识别失败"),
     USER_NOT_AUTHORIZED_THIRTY_PART("A0223", "用户未获得第三方登陆授权"),
     USER_LOGIN_HAS_EXPIRED("A0230", "用户登陆已过期"),
-    用户验证码错误("A0240", "用户验证码错误"),
-    用户验证码尝试次数超限("A0241", "用户验证码尝试次数超限"),
-    访问权限异常("A0300", "访问权限异常二级宏观错误码"),
-    访问未授权("A0301", "访问未授权"),
-    正在授权中("A0302", "正在授权中"),
-    用户授权申请被拒绝("A0303", "用户授权申请被拒绝"),
-    因访问对象隐私设置被拦截("A0310", "因访问对象隐私设置被拦截"),
-    授权已过期("A0311", "授权已过期"),
-    无权限使用API("A0312", "无权限使用 API"),
-    用户访问被拦截("A0320", "用户访问被拦截"),
-    黑名单用户("A0321", "黑名单用户"),
-    账号被冻结("A0322", "账号被冻结"),
-    非法IP地址("A0323", "非法 IP 地址"),
-    网关访问受限("A0324", "网关访问受限"),
-    地域黑名单("A0325", "地域黑名单"),
-    服务已欠费("A0330", "服务已欠费"),
-    用户签名异常("A0340", "用户签名异常"),
-    RSA签名错误("A0341", "RSA 签名错误"),
+    USER_VERIFICATION_CODE_ERROR("A0240", "用户验证码错误"),
+    USER_VERIFICATION_CODE_EXPECT_TIMES("A0241", "用户验证码尝试次数超限"),
+    ACCESS_EXCEPTION("A0300", "访问权限异常二级宏观错误码"),
+    UNAUTHORIZED_ACCESS("A0301", "访问未授权"),
+    UNDER_AUTHORIZATION("A0302", "正在授权中"),
+    USER_AUTHORIZATION_APPLICATION_WAS_REJECTED("A0303", "用户授权申请被拒绝"),
+    ACCESSED_OBJECT_PRIVACY_SETTINGS_BLOCKED("A0310", "因访问对象隐私设置被拦截"),
+    AUTHORIZATION_EXPIRED("A0311", "授权已过期"),
+    NO_PERMISSION_TO_USE_API("A0312", "无权限使用 API"),
+    USER_ACCESS_BLOCKED("A0320", "用户访问被拦截"),
+    BLACKLIST_USER("A0321", "黑名单用户"),
+    ACCOUNT_HAS_BEEN_FROZEN("A0322", "账号被冻结"),
+    ILLEGAL_IP_ADDRESS("A0323", "非法 IP 地址"),
+    GATEWAY_ACCESS_RESTRICTED("A0324", "网关访问受限"),
+    REGIONAL_BLACKLIST("A0325", "地域黑名单"),
+    SERVICE_IS_OVERDUE("A0330", "服务已欠费"),
+    USER_SIGNATURE_EXCEPTION("A0340", "用户签名异常"),
+    RSA_SIGN_ERROR("A0341", "RSA 签名错误"),
     用户请求参数错误("A0400", "用户请求参数错误"),
     包含非法恶意跳转链接("A0401", "包含非法恶意跳转链接"),
     无效的用户输入("A0402", "无效的用户输入"),
@@ -181,15 +181,15 @@ public enum ErrorCodeEnum {
     通知服务出错("C0500", "通知服务出错"),
     短信提醒服务失败("C0501", "短信提醒服务失败"),
     语音提醒服务失败("C0502", "语音提醒服务失败"),
-    邮件提醒服务失败("C0503", "邮件提醒服务失败*/");
+    邮件提醒服务失败("C0503", "邮件提醒服务失败");
 
 
     private String code;
-    private String value;
+    private String msg;
 
-    ErrorCodeEnum(String code, String value) {
+    ErrorCodeEnum(String code, String msg) {
         this.code = code;
-        this.value = value;
+        this.msg = msg;
     }
 
     public String getCode() {
@@ -197,7 +197,7 @@ public enum ErrorCodeEnum {
     }
 
     public String getMsg() {
-        return value;
+        return msg;
     }
 
 }

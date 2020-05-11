@@ -15,6 +15,7 @@
 
     <properties>
         <mybatisplus.version>3.3.1</mybatisplus.version>
+        <lombok.version>1.18.8</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -60,7 +61,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 
