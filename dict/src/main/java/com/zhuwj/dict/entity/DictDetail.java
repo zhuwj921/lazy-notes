@@ -1,9 +1,13 @@
 package com.zhuwj.dict.entity;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -23,6 +27,7 @@ public class DictDetail implements Serializable {
     /**
      * 主键
      */
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
@@ -38,12 +43,18 @@ public class DictDetail implements Serializable {
     /**
      * 唯一key
      */
+    @TableField("`key`")
     private String key;
 
     /**
      * 值
      */
     private String value;
+
+    /**
+     * 标签的值
+     */
+    private String label;
 
     /**
      * 排序

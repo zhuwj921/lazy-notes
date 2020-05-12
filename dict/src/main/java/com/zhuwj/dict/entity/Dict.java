@@ -2,7 +2,6 @@ package com.zhuwj.dict.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -33,8 +32,7 @@ public class Dict implements Serializable {
     /**
      * 删除标志
      */
-    @Builder.Default
-    private Boolean deleted =false;
+    private Boolean deleted;
 
     /**
      * 数据字典名称

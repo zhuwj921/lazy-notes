@@ -2,7 +2,7 @@ spring:
   application:
     name: 数据字典
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/lazy_notes?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    url: jdbc:mysql://127.0.0.1:3306/lazy_notes?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=GMT
     username: root
     password: root
     driver-class: com.mysql.cj.jdbc.Driver
