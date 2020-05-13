@@ -1,7 +1,7 @@
 package com.zhuwj.dict.controller;
 
 
-import com.zhuwj.common.reponse.ResponseResult;
+import com.zhuwj.common.response.ResponseResult;
 import com.zhuwj.dict.entity.DictDetail;
 import com.zhuwj.dict.service.IDictDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
