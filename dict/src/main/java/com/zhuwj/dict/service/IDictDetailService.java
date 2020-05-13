@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- *  服务类
+ *  数据字典详情服务
  * </p>
  *
  * @author zhuwj

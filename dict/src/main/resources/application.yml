@@ -4,7 +4,11 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/lazy_notes?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=GMT
     username: root
-    password: root
+    password: 123456789
     driver-class: com.mysql.cj.jdbc.Driver
 server:
   port: 8090
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

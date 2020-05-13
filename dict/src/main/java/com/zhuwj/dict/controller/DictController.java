@@ -18,32 +18,32 @@ import java.util.Map;
  * @since 2020-05-10
  */
 @RestController
-@RequestMapping("/dict")
+@RequestMapping("/dicts")
 public class DictController {
 
 
     @Autowired
     private IDictService dictService;
 
-    @GetMapping("list")
+    @GetMapping
     public ResponseResult list(Map map){
         return ResponseResult.ok(dictService.listByMap(map));
     }
 
-    @PostMapping("save")
+    @PostMapping
     public ResponseResult save(@RequestBody Dict dict) {
         dictService.save(dict);
         return ResponseResult.ok();
     }
 
-    @PutMapping("save")
+    @PutMapping
     public ResponseResult update(@RequestBody Dict dict) {
         dictService.updateById(dict);
         return ResponseResult.ok();
     }
 
-    @DeleteMapping("delete")
-    public ResponseResult delete(@RequestParam("id") Integer id) {
+    @DeleteMapping("{id}")
+    public ResponseResult delete(@PathVariable("id") Integer id) {
         dictService.removeById(id);
         return ResponseResult.ok();
     }
