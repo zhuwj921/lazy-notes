@@ -1,4 +1,4 @@
-package com.zhuwj.common.reponse;
+package com.zhuwj.common.response;
 
 
 import com.zhuwj.common.enums.ErrorCodeEnum;
