@@ -6,6 +6,7 @@
     <modules>
         <module>dict</module>
         <module>common</module>
+        <module>security</module>
     </modules>
 
     <groupId>com.zhuwj</groupId>
