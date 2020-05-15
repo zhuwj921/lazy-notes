@@ -1,4 +1,4 @@
-package com.zhuwj.security;
+package com.zhuwj.auth;
 
 
 import org.mybatis.spring.annotation.MapperScan;

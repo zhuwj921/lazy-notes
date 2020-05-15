@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>dict</module>
         <module>common</module>
-        <module>security</module>
+        <module>dict</module>
+        <module>auth</module>
     </modules>
 
     <groupId>com.zhuwj</groupId>
