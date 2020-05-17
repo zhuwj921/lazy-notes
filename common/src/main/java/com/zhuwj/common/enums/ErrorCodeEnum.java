@@ -8,6 +8,7 @@ package com.zhuwj.common.enums;
  */
 public enum ErrorCodeEnum {
     OK("00000", "OK"),
+    ERROR("11111", "ERROR"),
     DELETED("A0001", "已删除"),
     DATA_NOT_EXIST("A0002", "数据不存在"),
     USER_REGISTRATION_ERROR("A0100", "用户注册错误"),
@@ -17,6 +18,8 @@ public enum ErrorCodeEnum {
     USERNAME_ALREADY_EXISTS("A0111", "用户名已存在"),
     USERNAME_CONTAINS_SENSITIVE_WORDS("A0112", "用户名包含敏感词"),
     USERNAME_CONTAINS_SPECIAL_CHARACTERS("A0113", "用户名包含特殊字符"),
+    TOKEN_VALIDATE_FAIL("A0114", "token校验失败"),
+    TOKEN_OVERDUE("A0115", "token已过期"),
     PASSWORD_CHECK_FAILED("A0120", "密码校验失败"),
     INSUFFICIENT_PASSWORD_LENGTH("A0121", "密码长度不够"),
     INSUFFICIENT_PASSWORD_STRENGTH("A0122", "密码强度不够"),

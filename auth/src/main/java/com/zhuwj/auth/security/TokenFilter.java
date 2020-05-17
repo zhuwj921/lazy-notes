@@ -1,5 +1,7 @@
 package com.zhuwj.auth.security;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.zhuwj.auth.config.SecurityProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,7 +40,17 @@ public class TokenFilter extends GenericFilterBean {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         String token = resolveToken(httpServletRequest);
         if (StringUtils.isNotBlank(token)) {
-            Authentication authentication = tokenProvider.getAuthentication(token);
+            Authentication authentication = null;
+            try {
+                authentication = tokenProvider.getAuthentication(token);
+            } catch (TokenExpiredException e) {
+                log.debug("jwt TokenExpiredException",e);
+                servletRequest.getRequestDispatcher("/tokenExpiredException").forward(servletRequest, servletResponse);
+            }catch (JWTVerificationException e){
+                log.debug("jwt JWTVerificationException",e);
+                servletRequest.getRequestDispatcher("/jwtVerificationException").forward(servletRequest, servletResponse);
+
+            }
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
         filterChain.doFilter(servletRequest, servletResponse);

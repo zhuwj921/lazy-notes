@@ -7,6 +7,7 @@ import com.zhuwj.auth.util.WebContextUtil;
  * @author: zhuwj
  * @create: 2020-05-17 00:01
  **/
+
 public class BaseController {
 
     /**
@@ -17,4 +18,6 @@ public class BaseController {
     public Integer getCurrentUserId() {
         return WebContextUtil.getUser().getId();
     }
+
+
 }

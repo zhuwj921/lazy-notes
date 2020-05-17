@@ -62,7 +62,7 @@ public class ResponseResult<T> implements Serializable {
      * @return
      */
     public static <T> ResponseResult<T> error(ErrorCodeEnum errorCodeEnum) {
-        return error(errorCodeEnum.getCode(), errorCodeEnum.getMsg(),null);
+        return error(errorCodeEnum.getCode(), errorCodeEnum.getMsg(), null);
     }
 
     /**
@@ -71,8 +71,8 @@ public class ResponseResult<T> implements Serializable {
      * @param errorCodeEnum
      * @return
      */
-    public static <T> ResponseResult<T> error(ErrorCodeEnum errorCodeEnum,T result) {
-        return error(errorCodeEnum.getCode(), errorCodeEnum.getMsg(),result);
+    public static <T> ResponseResult<T> error(ErrorCodeEnum errorCodeEnum, T result) {
+        return error(errorCodeEnum.getCode(), errorCodeEnum.getMsg(), result);
     }
 
 
@@ -88,8 +88,23 @@ public class ResponseResult<T> implements Serializable {
         return new ResponseResult<T>()
                 .result(result)
                 .putTimeStamp()
-                .code(ErrorCodeEnum.OK.getCode()).msg(ErrorCodeEnum.OK.getMsg());
+                .code(code).msg(message);
     }
+
+    /**
+     * 自定义消息 与错误码
+     *
+     * @param code
+     * @param message
+     * @param <T>
+     * @return
+     */
+    public static <T> ResponseResult<T> error(String code, String message) {
+        return new ResponseResult<T>()
+                .putTimeStamp()
+                .code(code).msg(message);
+    }
+
     /**
      * 请求成功  默认code为0 掺入对应的返回结果
      *
