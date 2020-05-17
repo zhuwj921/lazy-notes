@@ -1,6 +1,6 @@
 spring:
   application:
-    name: 数据字典
+    name: 权限管理
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/auth?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=GMT
     username: root
