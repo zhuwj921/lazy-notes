@@ -11,9 +11,10 @@ public class BaseController {
 
     /**
      * 获取当前用户id
+     *
      * @return
      */
-    public Integer getCurrentUserId(){
-      return   WebContextUtil.getUser().getId();
+    public Integer getCurrentUserId() {
+        return WebContextUtil.getUser().getId();
     }
 }

@@ -15,13 +15,24 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "jwt")
 public class SecurityProperties {
 
+    /**
+     * 请求头部
+     */
     private String header;
-
+    /**
+     * 请求token前缀
+     */
     private String tokenPrefix;
-
+    /**
+     * 密钥key
+     */
     private String key;
-
+    /**
+     * token有效期
+     */
     private Integer expiresAt;
-
+    /**
+     * 接收方
+     */
     private String audience;
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 用来解决认证过的用户访问无权限资源时的异常
+ * 用来解决用户访问无权限资源时的异常
  *
  * @author zhuwj
  * @since 2020-05-15

@@ -53,9 +53,10 @@ public class WebContextUtil {
 
     /**
      * 获取用户信息对象
+     *
      * @return
      */
-    public UserDTO getUser(){
+    public UserDTO getUser() {
         return WebContextUtil.getCurrentSecurityUser().getUser();
     }
 

@@ -40,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final SecurityProperties securityProperties;
 
     private final TokenProvider tokenProvider;
+
     /**
      * 去掉ROLE_ 前缀
      *
@@ -88,12 +89,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http    .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().authorizeRequests().antMatchers("/auth/login").permitAll()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .and().authorizeRequests().anyRequest().authenticated()
-                .and().exceptionHandling().authenticationEntryPoint(securityAuthenticationEntryPoint).accessDeniedHandler(securityAccessDeniedHandler)
-                .and().addFilterBefore(new TokenFilter(tokenProvider,securityProperties), UsernamePasswordAuthenticationFilter.class);
+        http.csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//不创建session
+                .and().authorizeRequests().antMatchers("/auth/login").permitAll()//设置特定的url不需要权限
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()//所有options 请求不需要权限
+                .and().authorizeRequests().anyRequest().authenticated()//所有请求都要权限
+                .and().exceptionHandling().authenticationEntryPoint(securityAuthenticationEntryPoint).accessDeniedHandler(securityAccessDeniedHandler)//增加授权失败出处理
+                .and().addFilterBefore(new TokenFilter(tokenProvider, securityProperties), UsernamePasswordAuthenticationFilter.class);//增加token拦截器
     }
 }

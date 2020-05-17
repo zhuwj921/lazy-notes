@@ -34,7 +34,7 @@ public class TokenFilter extends GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        //验证token
+        //获取token 得到authentication
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         String token = resolveToken(httpServletRequest);
         if (StringUtils.isNotBlank(token)) {
@@ -44,6 +44,12 @@ public class TokenFilter extends GenericFilterBean {
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
+    /**
+     * 获取去除前缀的token
+     *
+     * @param request
+     * @return
+     */
     private String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader(properties.getHeader());
         if (StringUtils.isNotBlank(bearerToken) && bearerToken.startsWith(properties.getTokenPrefix())) {

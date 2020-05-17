@@ -31,18 +31,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private ISysUserService sysUserService;
 
     @Override
-    public SecurityUserDTO loadUserByUsername(String s){
+    public SecurityUserDTO loadUserByUsername(String s) {
         SysUser sysUser;
         try {
-             sysUser = sysUserService.findByUsername(s);
+            sysUser = sysUserService.findByUsername(s);
         } catch (BusinessException e) {
-            throw new UsernameNotFoundException("username not found",e);
+            throw new UsernameNotFoundException("username not found", e);
         }
 
         UserDTO userDTO = new UserDTO();
         userDTO.init(sysUser);
         List<String> authoritieList = Arrays.asList("sysAdmin");
         List authorities = authoritieList.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
-        return new SecurityUserDTO(userDTO,authorities);
+        return new SecurityUserDTO(userDTO, authorities);
     }
 }

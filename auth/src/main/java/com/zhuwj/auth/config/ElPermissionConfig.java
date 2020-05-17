@@ -15,6 +15,12 @@ public class ElPermissionConfig {
 
     private static final String SYS_ADMIN = "sysAdmin";
 
+    /**
+     * 校验是否存在权限
+     *
+     * @param permissions
+     * @return
+     */
     public Boolean check(String... permissions) {
         // 获取当前用户的角色
         Set<String> elPermissions = WebContextUtil.getCurrentSecurityUser().getRoles();

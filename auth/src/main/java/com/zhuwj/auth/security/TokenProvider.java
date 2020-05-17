@@ -10,6 +10,7 @@ import com.zhuwj.auth.entity.SysUser;
 import com.zhuwj.auth.model.dto.SecurityUserDTO;
 import com.zhuwj.auth.model.dto.UserDTO;
 import com.zhuwj.auth.service.ISysUserService;
+import com.zhuwj.common.util.IdUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.time.DateUtils;
@@ -58,14 +59,14 @@ public class TokenProvider {
         List<String> authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
-        Date date = DateUtils.addMinutes(new Date(),properties.getExpiresAt());
+        Date date = DateUtils.addMinutes(new Date(), properties.getExpiresAt());
         return JWT.create()
                 .withExpiresAt(date)
                 .withNotBefore(new Date())
                 .withSubject(authentication.getName())
                 .withAudience(properties.getAudience())
                 .withArrayClaim(AUTH_KEY, authorities.toArray(new String[authorities.size()]))
-                .withJWTId(UUID.randomUUID().toString())
+                .withJWTId(IdUtil.get4UUID())
                 .sign(Algorithm.HMAC256(properties.getKey()));
     }
 
@@ -86,7 +87,7 @@ public class TokenProvider {
         Claim authoritiesClaim = payload.getClaim(AUTH_KEY);
         List<String> authoritieList = authoritiesClaim.asList(String.class);
         Collection<GrantedAuthority> authorities = authoritieList.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
-        List<GrantedAuthority> grantedAuthorities =  new ArrayList<>(authorities);
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>(authorities);
         //自定义添加属性 可多个
         UserDTO userDTO = new UserDTO();
         SysUser sysUser = userService.findByUsername(payload.getSubject());

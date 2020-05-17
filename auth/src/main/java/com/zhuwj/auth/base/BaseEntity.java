@@ -60,6 +60,9 @@ public class BaseEntity<T> extends Model<BaseEntity<T>> {
     private Integer version;
 
 
+    /**
+     * 初始化默认数据
+     */
     public void init() {
         this.setUuid(IdUtil.get32UUID());
         this.setCreateId(WebContextUtil.getUser().getId());
@@ -68,6 +71,12 @@ public class BaseEntity<T> extends Model<BaseEntity<T>> {
         this.setUpdateTime(LocalDateTime.now());
     }
 
+    /**
+     * 初始化更新的默认数据
+     *
+     * @param t
+     * @param <T>
+     */
     public <T extends BaseEntity> void modify(T t) {
         LocalDateTime dateTime = LocalDateTime.now();
         this.setId(t.getId());
