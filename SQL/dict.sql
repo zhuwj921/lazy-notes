@@ -1,9 +1,9 @@
 
-CREATE DATABASE `lazy_notes`;
+CREATE DATABASE `dict`;
 
-USE `lazy_notes`;
+USE `dict`;
 
-/*Table structure for table `dict` */
+
 
 DROP TABLE IF EXISTS `dict`;
 
@@ -15,11 +15,9 @@ CREATE TABLE `dict` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-/*Data for the table `dict` */
 
 insert  into `dict`(`id`,`deleted`,`name`,`remark`) values (1,0,'操作结果','操作结果');
 
-/*Table structure for table `dict_detail` */
 
 DROP TABLE IF EXISTS `dict_detail`;
 
@@ -34,7 +32,6 @@ CREATE TABLE `dict_detail` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-/*Data for the table `dict_detail` */
 
 insert  into `dict_detail`(`id`,`deleted`,`dict_id`,`key`,`value`,`label`,`sort`) values (1,0,1,'success','1','成功',1),(2,0,1,'fail','2','失败',2);
 
