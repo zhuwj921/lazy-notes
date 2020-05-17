@@ -9,6 +9,7 @@ package com.zhuwj.common.enums;
 public enum ErrorCodeEnum {
     OK("00000", "OK"),
     DELETED("A0001", "已删除"),
+    DATA_NOT_EXIST("A0002", "数据不存在"),
     USER_REGISTRATION_ERROR("A0100", "用户注册错误"),
     USER_NOT_AGREE_AGREEMENT("A0101", "用户未同意隐私协议"),
     REGISTRATION_IS_LIMITED_BY_COUNTRY_OR_REGION("A0102", "注册国家或地区受限"),

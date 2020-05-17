@@ -3,6 +3,7 @@ package com.zhuwj.auth.config;
 import com.zhuwj.auth.security.SecurityAccessDeniedHandler;
 import com.zhuwj.auth.security.SecurityAuthenticationEntryPoint;
 import com.zhuwj.auth.security.TokenFilter;
+import com.zhuwj.auth.security.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,6 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final SecurityAuthenticationEntryPoint securityAuthenticationEntryPoint;
 
+    private final SecurityProperties securityProperties;
+
+    private final TokenProvider tokenProvider;
     /**
      * 去掉ROLE_ 前缀
      *
@@ -64,7 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/static/**");
+        web.ignoring().antMatchers("/static");
     }
 
     /**
@@ -84,11 +88,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().authorizeRequests().antMatchers("/auth").permitAll()
+        http    .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().authorizeRequests().antMatchers("/auth/login").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .and().authorizeRequests().anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(securityAuthenticationEntryPoint).accessDeniedHandler(securityAccessDeniedHandler)
-                .and().addFilterBefore(new TokenFilter(), UsernamePasswordAuthenticationFilter.class);
+                .and().addFilterBefore(new TokenFilter(tokenProvider,securityProperties), UsernamePasswordAuthenticationFilter.class);
     }
 }

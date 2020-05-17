@@ -5,7 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@MapperScan("com.zhuwj.security.mapper")
+@MapperScan("com.zhuwj.auth.mapper")
 @SpringBootApplication
 public class Application {
 
