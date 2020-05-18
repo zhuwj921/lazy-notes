@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 用户角色表 服务实现类
+ * 关系表用户角色 服务实现类
  * </p>
  *
  * @author zhuwj
- * @since 2020-05-17
+ * @since 2020-05-18
  */
 @Service
 public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRole> implements ISysUserRoleService {
