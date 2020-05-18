@@ -65,9 +65,7 @@ public class SysUserController extends BaseController {
     @DeleteMapping
     public ResponseResult delete(@RequestBody SysUser sysUser) {
         SysUser queryResult = sysUserService.findByUuid(sysUser.getUuid());
-        sysUser.setDeleted(true);
-        sysUser.modify(queryResult);
-        return ResponseResult.ok(sysUserService.updateById(sysUser));
+        return ResponseResult.ok(sysUserService.removeById(queryResult.getId()));
     }
 
     @PatchMapping("enabled")

@@ -1,9 +1,12 @@
 package com.zhuwj.auth.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.zhuwj.auth.entity.SysRole;
+import com.zhuwj.auth.service.ISysRoleService;
+import com.zhuwj.common.response.ResponseResult;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
 import com.zhuwj.auth.base.BaseController;
 
 /**
@@ -18,6 +21,31 @@ import com.zhuwj.auth.base.BaseController;
 @RequestMapping("/sys-role")
 public class SysRoleController extends BaseController {
 
+    @Autowired
+    private ISysRoleService sysRoleService;
 
+    @PostMapping
+    public ResponseResult save(@RequestBody SysRole sysRole) {
+        sysRole.init();
+        return ResponseResult.ok(sysRoleService.save(sysRole));
+    }
+
+    @PutMapping
+    public ResponseResult update(@RequestBody SysRole sysRole) {
+        SysRole queryResult = sysRoleService.findByUuid(sysRole.getUuid());
+        sysRole.modify(queryResult);
+        return ResponseResult.ok(sysRoleService.updateById(sysRole));
+    }
+
+    @GetMapping("{uuid}")
+    public ResponseResult findRole(@PathVariable("uuid") String uuid) {
+        return ResponseResult.ok(sysRoleService.findByUuid(uuid));
+    }
+
+    @DeleteMapping
+    public ResponseResult delete(@RequestBody SysRole sysRole){
+        SysRole queryResult = sysRoleService.findByUuid(sysRole.getUuid());
+        return ResponseResult.ok(sysRoleService.removeById(queryResult.getId()));
+    }
 
 }

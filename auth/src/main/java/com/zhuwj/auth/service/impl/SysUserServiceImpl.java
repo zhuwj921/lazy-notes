@@ -7,7 +7,6 @@ import com.zhuwj.auth.mapper.SysUserMapper;
 import com.zhuwj.auth.service.ISysUserService;
 import com.zhuwj.common.enums.ErrorCodeEnum;
 import com.zhuwj.common.exception.BusinessException;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +19,8 @@ import org.springframework.stereotype.Service;
  * @since 2020-05-17
  */
 @Service
-@RequiredArgsConstructor
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
 
-    private final SysUserMapper sysUserMapper;
 
     @Override
     public SysUser findByUuid(String uuid) {
@@ -32,7 +29,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("uuid", uuid);
-        SysUser sysUser = sysUserMapper.selectOne(queryWrapper);
+        SysUser sysUser = baseMapper.selectOne(queryWrapper);
         if (sysUser == null) {
             throw new BusinessException(ErrorCodeEnum.DATA_NOT_EXIST);
         }
@@ -46,7 +43,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", username);
-        SysUser sysUser = sysUserMapper.selectOne(queryWrapper);
+        SysUser sysUser = baseMapper.selectOne(queryWrapper);
         if (sysUser == null) {
             throw new BusinessException(ErrorCodeEnum.DATA_NOT_EXIST);
         }

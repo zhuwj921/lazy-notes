@@ -1,10 +1,17 @@
 package com.zhuwj.auth.controller;
 
 
+import com.zhuwj.auth.model.dto.UserRoleDTO;
+import com.zhuwj.auth.service.ISysUserRoleService;
+import com.zhuwj.common.response.ResponseResult;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 import com.zhuwj.auth.base.BaseController;
+
+import java.util.Set;
 
 /**
  * <p>
@@ -17,5 +24,15 @@ import com.zhuwj.auth.base.BaseController;
 @RestController
 @RequestMapping("/sys-user-role")
 public class SysUserRoleController extends BaseController {
+
+    @Autowired
+    private ISysUserRoleService sysUserRoleService;
+
+    public ResponseResult setUserRole(@RequestBody UserRoleDTO userRoleDTO){
+        Integer userId = userRoleDTO.getUserId();
+        Set<Integer> roleIds = userRoleDTO.getRoleIds();
+        return ResponseResult.ok();
+    }
+
 
 }
