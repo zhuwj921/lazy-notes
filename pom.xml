@@ -7,6 +7,9 @@
         <module>common</module>
         <module>dict</module>
         <module>auth</module>
+        <module>workflow</module>
+        <module>generator</module>
+        <module>database</module>
     </modules>
 
     <groupId>com.zhuwj</groupId>

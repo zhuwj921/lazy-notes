@@ -1,4 +1,4 @@
-import com.zhuwj.auth.Application;
+import com.zhuwj.auth.AuthApplication;
 import com.zhuwj.auth.model.dto.UserDTO;
 import com.zhuwj.auth.security.TokenProvider;
 import org.junit.Test;
@@ -9,7 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = AuthApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TokenProviderTest {
 
     @Autowired
