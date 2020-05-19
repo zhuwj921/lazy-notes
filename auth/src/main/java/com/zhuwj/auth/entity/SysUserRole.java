@@ -19,10 +19,6 @@ import lombok.experimental.Accessors;
 public class SysUserRole extends BaseEntity {
 
 
-    /**
-     * 创建者id
-     */
-    private Integer createdId;
 
     /**
      * 用户id
