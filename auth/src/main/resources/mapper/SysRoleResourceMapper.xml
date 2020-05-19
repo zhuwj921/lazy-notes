@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhuwj.auth.mapper.SysRoleResourceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zhuwj.auth.entity.SysRoleResource">
+    <result column="id" property="id" />
+    <result column="uuid" property="uuid" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+    <result column="update_id" property="updateId" />
+    <result column="deleted" property="deleted" />
+        <result column="created_id" property="createdId" />
+        <result column="role_id" property="roleId" />
+        <result column="resource_id" property="resourceId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        uuid,
+        create_time,
+        update_time,
+        update_id,
+        deleted,
+        created_id, role_id, resource_id
+    </sql>
+
+</mapper>

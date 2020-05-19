@@ -10,6 +10,10 @@ import com.zhuwj.common.exception.BusinessException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 /**
  * <p>
  * 系统角色表 服务实现类
@@ -34,5 +38,17 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
             throw new BusinessException(ErrorCodeEnum.DATA_NOT_EXIST);
         }
         return sysRole;
+    }
+
+    @Override
+    public List<SysRole> findByRoleIds(Set<Integer> roleIds) {
+
+        QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
+        List<SysRole> list = new ArrayList<>();
+        for (Integer id : roleIds){
+            queryWrapper.eq("id", id);
+            list.addAll(baseMapper.selectList(queryWrapper));
+        }
+        return list;
     }
 }

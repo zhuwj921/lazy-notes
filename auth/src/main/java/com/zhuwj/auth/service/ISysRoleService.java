@@ -1,7 +1,10 @@
 package com.zhuwj.auth.service;
 
-import com.zhuwj.auth.entity.SysRole;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zhuwj.auth.entity.SysRole;
+
+import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -14,5 +17,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ISysRoleService extends IService<SysRole> {
 
     SysRole findByUuid(String uuid);
+
+
+    List<SysRole> findByRoleIds(Set<Integer> roleIds);
 
 }

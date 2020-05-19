@@ -5,10 +5,15 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.Payload;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zhuwj.auth.config.SecurityProperties;
+import com.zhuwj.auth.entity.SysResource;
 import com.zhuwj.auth.entity.SysUser;
+import com.zhuwj.auth.entity.SysUserRole;
 import com.zhuwj.auth.model.dto.SecurityUserDTO;
 import com.zhuwj.auth.model.dto.UserDTO;
+import com.zhuwj.auth.service.ISysResourceService;
+import com.zhuwj.auth.service.ISysUserRoleService;
 import com.zhuwj.auth.service.ISysUserService;
 import com.zhuwj.common.util.IdUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +26,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -40,6 +48,10 @@ public class TokenProvider {
     private SecurityProperties properties;
     @Autowired
     private ISysUserService userService;
+    @Autowired
+    private ISysResourceService sysResourceService;
+    @Autowired
+    private ISysUserRoleService sysUserRoleService;
 
     private static final String AUTH_KEY = " authorities";
 
@@ -56,9 +68,7 @@ public class TokenProvider {
      * @return
      */
     public String createToken(Authentication authentication) {
-        List<String> authorities = authentication.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList());
+        List<String> authorities = sysResourceService.findResourceByUsername(authentication.getName()).stream().map(SysResource::getPermission).collect(Collectors.toList());
         Date date = DateUtils.addMinutes(new Date(), properties.getExpiresAt());
         return JWT.create()
                 .withExpiresAt(date)
@@ -91,6 +101,7 @@ public class TokenProvider {
         //自定义添加属性 可多个
         UserDTO userDTO = new UserDTO();
         SysUser sysUser = userService.findByUsername(payload.getSubject());
+
         userDTO.init(sysUser);
         SecurityUserDTO principal = new SecurityUserDTO(userDTO, CollectionUtils.isNotEmpty(grantedAuthorities) ? grantedAuthorities : new ArrayList<>());
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);

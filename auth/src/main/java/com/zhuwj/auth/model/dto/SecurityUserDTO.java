@@ -26,7 +26,7 @@ public class SecurityUserDTO implements UserDetails {
     private final List<GrantedAuthority> authorities;
 
 
-    public Set<String> getRoles() {
+    public Set<String> getResources() {
         return authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
     }
 
