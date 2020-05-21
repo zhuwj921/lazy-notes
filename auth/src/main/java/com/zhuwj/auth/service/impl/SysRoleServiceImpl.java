@@ -1,5 +1,6 @@
 package com.zhuwj.auth.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zhuwj.auth.entity.SysRole;
@@ -7,7 +8,6 @@ import com.zhuwj.auth.mapper.SysRoleMapper;
 import com.zhuwj.auth.service.ISysRoleService;
 import com.zhuwj.common.enums.ErrorCodeEnum;
 import com.zhuwj.common.exception.BusinessException;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     @Override
     public SysRole findByUuid(String uuid) {
-        if (StringUtils.isBlank(uuid)) {
+        if (StrUtil.isBlank(uuid)) {
             throw new BusinessException(ErrorCodeEnum.REQUIRED_PARAMETER_FOR_THE_REQUEST_IS_EMPTY);
         }
         QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();

@@ -1,11 +1,11 @@
 package com.zhuwj.auth.security;
 
+import cn.hutool.core.util.StrUtil;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.zhuwj.auth.config.SecurityProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
@@ -39,7 +39,7 @@ public class TokenFilter extends GenericFilterBean {
         //获取token 得到authentication
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         String token = resolveToken(httpServletRequest);
-        if (StringUtils.isNotBlank(token)) {
+        if (StrUtil.isNotBlank(token)) {
             Authentication authentication = null;
             try {
                 authentication = tokenProvider.getAuthentication(token);
@@ -64,7 +64,7 @@ public class TokenFilter extends GenericFilterBean {
      */
     private String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader(properties.getHeader());
-        if (StringUtils.isNotBlank(bearerToken) && bearerToken.startsWith(properties.getTokenPrefix())) {
+        if (StrUtil.isNotBlank(bearerToken) && bearerToken.startsWith(properties.getTokenPrefix())) {
             return bearerToken.replace(properties.getTokenPrefix(), "").trim();
         }
         return null;

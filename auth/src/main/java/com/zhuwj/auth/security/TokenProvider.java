@@ -1,15 +1,15 @@
 package com.zhuwj.auth.security;
 
+import cn.hutool.core.date.DateUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.Payload;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.zhuwj.auth.config.SecurityProperties;
 import com.zhuwj.auth.entity.SysResource;
 import com.zhuwj.auth.entity.SysUser;
-import com.zhuwj.auth.entity.SysUserRole;
 import com.zhuwj.auth.model.dto.SecurityUserDTO;
 import com.zhuwj.auth.model.dto.UserDTO;
 import com.zhuwj.auth.service.ISysResourceService;
@@ -17,8 +17,6 @@ import com.zhuwj.auth.service.ISysUserRoleService;
 import com.zhuwj.auth.service.ISysUserService;
 import com.zhuwj.common.util.IdUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -69,7 +67,7 @@ public class TokenProvider {
      */
     public String createToken(Authentication authentication) {
         List<String> authorities = sysResourceService.findResourceByUsername(authentication.getName()).stream().map(SysResource::getPermission).collect(Collectors.toList());
-        Date date = DateUtils.addMinutes(new Date(), properties.getExpiresAt());
+        Date date = DateUtil.offsetMinute(new Date(), properties.getExpiresAt());
         return JWT.create()
                 .withExpiresAt(date)
                 .withNotBefore(new Date())
