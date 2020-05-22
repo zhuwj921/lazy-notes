@@ -13,11 +13,6 @@
     <name>工作流</name>
     <description>工作流引擎学习</description>
 
-    <properties>
-        <mybatisplus.version>3.3.1</mybatisplus.version>
-        <lombok.version>1.18.8</lombok.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
-    </properties>
 
     <dependencyManagement>
         <dependencies>

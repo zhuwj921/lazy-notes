@@ -13,11 +13,6 @@
     <name>数据字典</name>
     <description>数据库配置key-value类型数据</description>
 
-    <properties>
-        <lombok.version>1.18.8</lombok.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>

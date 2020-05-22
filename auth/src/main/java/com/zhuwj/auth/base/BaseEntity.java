@@ -1,12 +1,12 @@
 package com.zhuwj.auth.base;
 
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zhuwj.auth.util.WebContextUtil;
-import com.zhuwj.common.util.IdUtil;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -64,7 +64,7 @@ public class BaseEntity<T> extends Model<BaseEntity<T>> {
      * 初始化默认数据
      */
     public void init() {
-        this.setUuid(IdUtil.get32UUID());
+        this.setUuid(IdUtil.randomUUID());
         this.setCreateId(WebContextUtil.getUser().getId());
         this.setUpdateId(WebContextUtil.getUser().getId());
         this.setCreateTime(LocalDateTime.now());

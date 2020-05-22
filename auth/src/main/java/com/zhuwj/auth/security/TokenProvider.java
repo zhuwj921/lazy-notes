@@ -1,6 +1,7 @@
 package com.zhuwj.auth.security;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.IdUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -15,7 +16,6 @@ import com.zhuwj.auth.model.dto.UserDTO;
 import com.zhuwj.auth.service.ISysResourceService;
 import com.zhuwj.auth.service.ISysUserRoleService;
 import com.zhuwj.auth.service.ISysUserService;
-import com.zhuwj.common.util.IdUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -74,7 +74,7 @@ public class TokenProvider {
                 .withSubject(authentication.getName())
                 .withAudience(properties.getAudience())
                 .withArrayClaim(AUTH_KEY, authorities.toArray(new String[authorities.size()]))
-                .withJWTId(IdUtil.get4UUID())
+                .withJWTId(IdUtil.randomUUID())
                 .sign(Algorithm.HMAC256(properties.getKey()));
     }
 
