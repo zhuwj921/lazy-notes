@@ -10,6 +10,7 @@
         <module>workflow</module>
         <module>generator</module>
         <module>database</module>
+        <module>upload</module>
     </modules>
 
     <groupId>com.zhuwj</groupId>

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: 文件上传
+
+server:
+  port: 8040
+
+debug: true
