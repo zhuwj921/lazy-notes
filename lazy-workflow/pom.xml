@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>workflow</artifactId>
+    <artifactId>lazy-workflow</artifactId>
     <name>工作流</name>
     <description>工作流引擎学习</description>
 
@@ -30,7 +30,7 @@
     <dependencies>
         <dependency>
             <groupId>com.zhuwj</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>lazy-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

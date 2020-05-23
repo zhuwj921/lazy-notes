@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>common</module>
-        <module>dict</module>
-        <module>auth</module>
-        <module>workflow</module>
-        <module>generator</module>
-        <module>database</module>
-        <module>upload</module>
+        <module>lazy-common</module>
+        <module>lazy-dict</module>
+        <module>lazy-auth</module>
+        <module>lazy-workflow</module>
+        <module>lazy-generator</module>
+        <module>lazy-database</module>
+        <module>lazy-attachment</module>
     </modules>
 
     <groupId>com.zhuwj</groupId>

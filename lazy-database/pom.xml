@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>database</artifactId>
+    <artifactId>lazy-database</artifactId>
     <name>数据库</name>
     <description>存储数据库文件：sql</description>
 </project>

@@ -3,15 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>lazy-notes</artifactId>
         <groupId>com.zhuwj</groupId>
+        <artifactId>lazy-notes</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>upload</artifactId>
-    <name>文件上传</name>
-    <description>文件上传功能</description>
+    <artifactId>lazy-dict</artifactId>
+    <name>数据字典</name>
+    <description>数据库配置key-value类型数据</description>
 
     <dependencyManagement>
         <dependencies>
@@ -29,7 +29,7 @@
     <dependencies>
         <dependency>
             <groupId>com.zhuwj</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>lazy-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -38,7 +38,15 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 

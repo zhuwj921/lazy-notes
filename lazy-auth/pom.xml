@@ -3,15 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.zhuwj</groupId>
         <artifactId>lazy-notes</artifactId>
+        <groupId>com.zhuwj</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dict</artifactId>
-    <name>数据字典</name>
-    <description>数据库配置key-value类型数据</description>
+    <artifactId>lazy-auth</artifactId>
+    <name>权限管理</name>
+    <description>使用spring-security进行权限，安全控制</description>
+
+    <properties>
+        <lombok.version>1.18.8</lombok.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <java-jwt.version>3.10.3</java-jwt.version>
+        <commons-lang3.version>3.10</commons-lang3.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -29,7 +36,7 @@
     <dependencies>
         <dependency>
             <groupId>com.zhuwj</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>lazy-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -42,14 +49,22 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${java-jwt.version}</version>
+        </dependency>
     </dependencies>
-
 
     <build>
         <plugins>
