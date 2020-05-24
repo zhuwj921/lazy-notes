@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: 服务启动
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/lazy_notes?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=GMT
+    username: root
+    password: root
+    driver-class: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 5MB
+      max-file-size: 20MB
+      location: D:\file
+
+server:
+  port: 8000
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+jwt:
+  header: Authorization
+  token-prefix: Bearer
+  key: JldM90LCIQNZ3cQXrER3Jqyq3bkXttLNNVaTsc1TaEPQ9p1gZM8Z0TtvZL88S0bb
+  expires-at: 120 # 分钟
+  audience: web
+debug: true
+
