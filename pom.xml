@@ -17,6 +17,11 @@
         <module>lazy-workflow-service</module>
         <module>lazy-attachment-rest</module>
         <module>lazy-attachment-service</module>
+        <module>lazy-event-service</module>
+        <module>lazy-event-rest</module>
+        <module>lazy-algorithm</module>
+        <module>lazy-quartz-service</module>
+        <module>lazy-quartz-rest</module>
 
     </modules>
 

@@ -1,6 +1,7 @@
 package com.zhuwj.attachment.rest;
 
 
+import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
@@ -124,7 +125,7 @@ public class AttachmentController extends BaseController {
         Long size = file.getSize();
         String fileType = StrUtil.subAfter(fileName, ".", true);
         String newFileName = IdUtil.simpleUUID().concat(".").concat(fileType);
-        String date = DateUtil.format(LocalDateTime.now(), "yyyyMMdd");
+        String date = DateUtil.format(LocalDateTime.now(), DatePattern.PURE_DATE_PATTERN);
         String localFilePath = fileTempPath.concat(File.separator).concat(date).concat(File.separator);
         try {
             FileUtil.mkdir(localFilePath);
@@ -141,7 +142,8 @@ public class AttachmentController extends BaseController {
         attachment.setPath(localFilePath);
         attachment.setModuleCode(moduleCode);
         attachment.setSourceCode(sourceCode);
-        save(attachment);
+        attachment.init();
+        attachmentService.save(attachment);
         return ResponseResult.ok(attachment);
     }
 
