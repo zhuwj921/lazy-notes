@@ -11,5 +11,12 @@
 
     <artifactId>lazy-quartz-rest</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zhuwj</groupId>
+            <artifactId>lazy-quartz-service</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
