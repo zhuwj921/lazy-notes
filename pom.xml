@@ -8,6 +8,7 @@
         <module>lazy-common</module>
         <module>lazy-generator</module>
         <module>lazy-document</module>
+        <module>lazy-algorithm</module>
 
         <module>lazy-auth-rest</module>
         <module>lazy-auth-service</module>
@@ -19,7 +20,7 @@
         <module>lazy-attachment-service</module>
         <module>lazy-event-service</module>
         <module>lazy-event-rest</module>
-        <module>lazy-algorithm</module>
+
         <module>lazy-quartz-service</module>
         <module>lazy-quartz-rest</module>
 
