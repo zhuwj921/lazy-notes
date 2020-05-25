@@ -1,0 +1,18 @@
+centos7
+
+1 基本操作命令 https://www.runoob.com/mysql/mysql-install.html
+2.密码出现错误等无法输入
+vi /etc/my.cnf
+[mysqld] 增加 skip-grant-tables 放开授权权限
+-> mysql  #进入mysql
+-> ALTER USER 'root'@'localhost' IDENTIFIED BY '密码'; # 设置新密码
+-> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'cXLtoAfE85WkUi5R' WITH GRANT OPTION; # 其他客户端可以链接
+-> flush privileges;        
+-> exit;
+退出程序 删除 skip-grant-tables
+重启mysql
+3. 客户端无法连接，防火墙问题
+-> firewall-cmd --zone=public --add-port=3306/tcp --permanent  #增加防火墙端口 permanent永久生效
+-> firewall-cmd --reload #重启防火墙
+
+出错点: 进入mysql命令行， ;号结尾表示命令完成

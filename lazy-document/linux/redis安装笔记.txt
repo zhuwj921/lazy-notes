@@ -1,0 +1,69 @@
+﻿centos7
+
+yum list installed | grep gcc 
+
+yum install gcc
+
+http://download.redis.io/releases 下载地址
+
+wget http://download.redis.io/releases/redis-xxx.tar.gz 版本编号
+
+tar xzf redis-xxx.tar.gz
+
+cd  redis-xxx.tar.gz
+
+make
+
+编译失败
+make MALLOC=libc
+
+验证是否安装成功
+
+cd redis-4.0.9/src
+
+./redis-server &  后台启动
+
+./redis-cli  验证链接 
+
+输入 ping   返回 PONG 
+
+关闭redis 命令
+
+ps -ef|grep redis 
+
+kill -9  pid
+
+设置外网访问
+
+cd /redis     进入redis目录下
+
+mkidr bin 
+
+mv redis.conf bin  移动，防止运行时运行到默认配置 所以建议保存一个配置信息
+
+mv src/redis-server bin
+
+mv src/redis-cli bin
+
+修改redis.conf
+
+1. 注释bind 127.0.0.1 
+2. 设置 protected-mode 为no 
+3. daemonize 为yes 
+4. requirepass xxx 密码 
+
+根据配置文件启动redis
+cd bin   进入开始创建的bin 文件下
+ ./redis-server  ./redis.conf   启动命令
+ ./redis-cli
+ 输入 ping
+ 返回 PONG
+ 
+ 
+客户端无法连接，防火墙问题
+-> firewall-cmd --zone=public --add-port=6379/tcp --permanent  #增加防火墙端口 permanent永久生效
+-> firewall-cmd --reload #重启防火墙
+
+
+windows客户端工具下载
+http://www.uzzf.com/soft/78115.html
