@@ -16,14 +16,11 @@ spring:
 server:
   port: 8000
 
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 jwt:
   header: Authorization
   token-prefix: Bearer
   key: JldM90LCIQNZ3cQXrER3Jqyq3bkXttLNNVaTsc1TaEPQ9p1gZM8Z0TtvZL88S0bb
   expires-at: 120 # 分钟
   audience: web
-debug: true
+debug: false
 
