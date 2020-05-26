@@ -1,23 +1,13 @@
-package com.zhuwj.quartz.entity.domain;
-
-import lombok.Data;
-
-import java.math.BigInteger;
+package com.zhuwj.quartz.entity;
 
 /**
- * <p>
- * 实体类
- * </p>
+ * Description: TODO
  *
- * @package: com.xkcoding.task.quartz.entity.domain
- * @description: 实体类
- * @author: yangkai.shen
- * @date: Created in 2018-11-26 15:05
- * @copyright: Copyright (c) 2018
- * @version: V1.0
- * @modified: yangkai.shen
+ * @author zhuwj
+ * @version V1.0
+ * @date 2020-05-26
  */
-@Data
+
 public class JobAndTrigger {
     /**
      * 定时任务名称
@@ -42,11 +32,11 @@ public class JobAndTrigger {
     /**
      * 重复间隔
      */
-    private BigInteger repeatInterval;
+    private Long repeatInterval;
     /**
      * 触发次数
      */
-    private BigInteger timesTriggered;
+    private Long timesTriggered;
     /**
      * cron 表达式
      */
