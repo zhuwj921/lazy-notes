@@ -15,12 +15,49 @@
 - 基础的实体类定义信息
 - Spring Security用户信息处理的工具类
 
-***
+# 文档管理(lazy-document)
+
+> 记录SQL，Java规范，安装流程等文档
+
+### 功能列表
+- 各个模块SQL语句集合
+- linux的软件安装记录
+- Java开发规范
+
+# 代码生成(lazy-generator)
+
+> 基于mybatis-plus的代码生成
+
+### 依赖模块
+
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| msyql        | 8.0.20         |
+| hutool       | 5.3.5          |
+| lombok       | 1.18.8         |
+| mybatis-plus | 3.3.1          |
+| mybatis-plus-generator| 3.10.3|
+| freemarker | 2.3.0.RELEASE    |
+
+### 功能列表
+- 自定义模板
+- 根据输入参数(模块名称:lazy-auth,包名称:auth,表名称:sys_user),生成自己定义的模板和代码位置
+
+# 启动入口(lazy-bootstrap)
+
+> 动态集成相关模块
+
+### 目前依赖模块
+
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| lazy-auth    | 1.0.0          |
+| lazy-dict    | 1.0.0          |
+| lazy-attachment| 1.0.0        |
 
 # 权限管理(lazy-auth)
 
 > SpringSecurity和JWT实现RBAC权限管理功能
-
 
 ### 依赖模块
 
@@ -77,4 +114,60 @@
 ### 功能列表
 - 定时任务数据的管理与配置
 - 动态修改定时任务信息
+
+# 附件管理（lazy-attachment）
+
+> 处理系统中附件上传，本地上传文件的保存以及其他操作
+
+### 依赖模块
+
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| spring-boot  | 2.3.0.RELEASE  |
+| msyql        | 8.0.20         |
+| hutool       | 5.3.5          |
+| lombok       | 1.18.8         |
+| mybatis-plus | 3.3.1          |
+
+### 功能列表
+- 附件数据的管理
+- 附件本地上传以及FTP等文件服务器上传操作
+- 附件的下载功能
+
+
+# 工作流（lazy-workflow）
+
+> 基于activity，提供各种流程解决方案
+
+### 依赖模块
+
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| spring-boot  | 2.3.0.RELEASE  |
+| msyql        | 8.0.20         |
+| hutool       | 5.3.5          |
+| lombok       | 1.18.8         |
+| mybatis-plus | 3.3.1          |
+| activity | 6.0.0         |
+
+### 功能列表
+- 请假流程实例测试
+
+# 事件处理（lazy-event）
+
+> 基于Spring的事件处理机制
+
+### 依赖模块
+
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| spring-boot  | 2.3.0.RELEASE  |
+| msyql        | 8.0.20         |
+| hutool       | 5.3.5          |
+| lombok       | 1.18.8         |
+| mybatis-plus | 3.3.1          |
+
+### 功能列表
+- 事件处理的测试demo
+
 
