@@ -17,9 +17,9 @@
 
 ***
 
-# 权限管理
+# 权限管理(lazy-auth)
 
-> Spring Security和JWT实现RBAC权限管理功能
+> SpringSecurity和JWT实现RBAC权限管理功能
 
 
 ### 依赖模块
@@ -32,9 +32,49 @@
 | lombok       | 1.18.8         |
 | mybatis-plus | 3.3.1          |
 | java-jwt     | 3.10.3          |
-| spring-security | 2.3.0.RELEASE 
+| spring-security | 2.3.0.RELEASE|
 
 ### 功能列表
 - 用户账号注册，信息管理等功能
 - RBAC基于角色的权限管理功能
 - 基于SpringSecurity和JWT实现的权限授权登入，权限校验等功能
+
+# 数据字典(lazy-dict)
+
+> 系统中实现配置数据的key-value形式与动态更改
+
+### 依赖模块
+
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| spring-boot  | 2.3.0.RELEASE  |
+| msyql        | 8.0.20         |
+| hutool       | 5.3.5          |
+| lombok       | 1.18.8         |
+| mybatis-plus | 3.3.1          |
+| spring-cache | 2.3.0.RELEASE |
+
+### 功能列表
+- 数据字典数据的管理与配置
+- 数据字典工具类获取字典值的操作
+- 数据字典缓存处理
+
+# 任务调度（lazy-quartz）
+
+> 基于quartz，在系统中实现对定时任务的操作，动态的改变定时任务信息
+
+### 依赖模块
+
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| spring-boot  | 2.3.0.RELEASE  |
+| msyql        | 8.0.20         |
+| hutool       | 5.3.5          |
+| lombok       | 1.18.8         |
+| mybatis-plus | 3.3.1          |
+| quartz | 2.3.0.RELEASE |
+
+### 功能列表
+- 定时任务数据的管理与配置
+- 动态修改定时任务信息
+
