@@ -1,42 +1,40 @@
 # lazy-notes
-> **记录功能代码 ，作为代码笔记本**
+> 记录平常学习，工作等需要的基础功能以及各种框架，工具的实践代码和例子
 ***
 
-# 公共模块
+## 公共模块(lazy-common)
 
-> **公用的返回结果，异常，错误码，工具类等**
+> 各个模块需要共同使用的一些功能或属性等
 
-
-
-***
-
-# 数据字典
-> **项目中可动态配置数据功能**
-
-## 技术栈
-1. SpringBoot
-2. Mybatis-Plus
-3. mysql
-4. lombok
-
-
-
-> **使用spring-boot-starter-cache，基于默认的缓存处理，可以添加**
-> **encache,redis等，数据库sql在SQL文件夹中: dict.sql**
+### 功能列表
+- 通用的返回结果
+- 通用的异常定义
+- 全局常量定义
+- 全局处理异常
+- 根据阿里的Java编码规范定义的错误码
+- 基础的实体类定义信息
+- Spring Security用户信息处理的工具类
 
 ***
 
 # 权限管理
 
-> **使用SpringSecurity和JWT实现RBAC权限管理功能**
+> Spring Security和JWT实现RBAC权限管理功能
 
-1. SpringBoot
-2. Mybatis-Plus
-3. mysql
-4. lombok
-5. JWT
-6. SpringSecurity
 
-> **基于SpringSecurity的安全管理基础上，结合Java-JWT，实现token创建，检验，接口权限检查等功能**
-> **基于于角色的访问控制RBAC基本思想，实现用户对角色资源管理**
+### 依赖模块
 
+| 名称   | 版本                  |
+| ------ | -------------------- |
+| spring-boot  | 2.3.0.RELEASE  |
+| msyql        | 8.0.20         |
+| hutool       | 5.3.5          |
+| lombok       | 1.18.8         |
+| mybatis-plus | 3.3.1          |
+| java-jwt     | 3.10.3          |
+| spring-security | 2.3.0.RELEASE 
+
+### 功能列表
+- 用户账号注册，信息管理等功能
+- RBAC基于角色的权限管理功能
+- 基于SpringSecurity和JWT实现的权限授权登入，权限校验等功能
