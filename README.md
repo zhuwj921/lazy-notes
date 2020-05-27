@@ -15,7 +15,7 @@
 - 基础的实体类定义信息
 - Spring Security用户信息处理的工具类
 
-# 文档管理(lazy-document)
+## 文档管理(lazy-document)
 
 > 记录SQL，Java规范，安装流程等文档
 
@@ -24,7 +24,7 @@
 - linux的软件安装记录
 - Java开发规范
 
-# 代码生成(lazy-generator)
+## 代码生成(lazy-generator)
 
 > 基于mybatis-plus的代码生成
 
@@ -43,7 +43,7 @@
 - 自定义模板
 - 根据输入参数(模块名称:lazy-auth,包名称:auth,表名称:sys_user),生成自己定义的模板和代码位置
 
-# 启动入口(lazy-bootstrap)
+## 启动入口(lazy-bootstrap)
 
 > 动态集成相关模块
 
@@ -55,7 +55,7 @@
 | lazy-dict    | 1.0.0          |
 | lazy-attachment| 1.0.0        |
 
-# 权限管理(lazy-auth)
+## 权限管理(lazy-auth)
 
 > SpringSecurity和JWT实现RBAC权限管理功能
 
@@ -76,7 +76,7 @@
 - RBAC基于角色的权限管理功能
 - 基于SpringSecurity和JWT实现的权限授权登入，权限校验等功能
 
-# 数据字典(lazy-dict)
+## 数据字典(lazy-dict)
 
 > 系统中实现配置数据的key-value形式与动态更改
 
@@ -96,7 +96,7 @@
 - 数据字典工具类获取字典值的操作
 - 数据字典缓存处理
 
-# 任务调度（lazy-quartz）
+## 任务调度（lazy-quartz）
 
 > 基于quartz，在系统中实现对定时任务的操作，动态的改变定时任务信息
 
@@ -115,7 +115,7 @@
 - 定时任务数据的管理与配置
 - 动态修改定时任务信息
 
-# 附件管理（lazy-attachment）
+## 附件管理（lazy-attachment）
 
 > 处理系统中附件上传，本地上传文件的保存以及其他操作
 
@@ -135,7 +135,7 @@
 - 附件的下载功能
 
 
-# 工作流（lazy-workflow）
+## 工作流（lazy-workflow）
 
 > 基于activity，提供各种流程解决方案
 
@@ -153,7 +153,7 @@
 ### 功能列表
 - 请假流程实例测试
 
-# 事件处理（lazy-event）
+## 事件处理（lazy-event）
 
 > 基于Spring的事件处理机制
 
