@@ -23,6 +23,7 @@
 
         <module>lazy-quartz-service</module>
         <module>lazy-quartz-rest</module>
+        <module>lazy-webmagic-service</module>
 
     </modules>
 
