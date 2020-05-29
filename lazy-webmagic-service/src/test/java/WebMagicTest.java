@@ -2,7 +2,7 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.model.OOSpider;
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 import us.codecraft.webmagic.model.annotation.TargetUrl;
-import us.codecraft.webmagic.pipeline.JsonFilePageModelPipeline;
+import us.codecraft.webmagic.pipeline.FilePageModelPipeline;
 
 import java.util.List;
 
@@ -28,6 +28,6 @@ public class WebMagicTest {
     public static void main(String[] args) {
         OOSpider.create(
                 Site.me(),
-                new JsonFilePageModelPipeline("/Users/zhuwj/tool/"), WebMagicTest.class).addUrl("http://my.oschina.net/flashsword/blog").run();
+                new FilePageModelPipeline("/Users/zhuwj/tool/"), WebMagicTest.class).addUrl("http://my.oschina.net/flashsword/blog").run();
     }
 }
