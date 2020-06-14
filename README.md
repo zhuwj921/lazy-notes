@@ -1,5 +1,6 @@
 # lazy-notes
 > 记录平常学习，工作等需要的基础功能以及各种框架，工具的实践代码和例子
+
 > git EOF问题（git config --global https.postBuffer 524288000）
 ***
 
