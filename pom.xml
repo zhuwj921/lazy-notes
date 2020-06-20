@@ -8,7 +8,6 @@
         <module>lazy-common</module>
         <module>lazy-generator</module>
         <module>lazy-document</module>
-        <module>lazy-algorithm</module>
 
         <module>lazy-auth-rest</module>
         <module>lazy-auth-service</module>
