@@ -1,9 +1,9 @@
 package com.zhuwj.bootstrap;
 
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -13,8 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @version V1.0
  * @date 2020-05-26
  */
+@EnableCaching
 @ComponentScan(basePackages = {"com.zhuwj"})
-@MapperScan("com.zhuwj.*.mapper")
 @SpringBootApplication
 public class BootstrapApplication {
 
