@@ -2,6 +2,7 @@ package com.zhuwj.common.response;
 
 
 import com.zhuwj.common.enums.ErrorCodeEnum;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
  * @date：2020.05.10
  * @version：1.0.0
  */
+@Data
 public class ResponseResult<T> implements Serializable {
 
     private static final long serialVersionUID = 8992436576262574064L;
@@ -23,37 +25,6 @@ public class ResponseResult<T> implements Serializable {
 
     private Long timestamp;
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
-    public Long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
 
     /**
      * 系统定义的枚举错误返回结果
