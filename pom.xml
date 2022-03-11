@@ -31,7 +31,7 @@
     <artifactId>lazy-notes</artifactId>
     <version>1.0.0</version>
     <name>lazy-notes</name>
-    <description>code笔记</description>
+    <description>code 笔记</description>
 
 
     <properties>
